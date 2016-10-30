@@ -2588,6 +2588,7 @@ containing a value of this type.
         public static final int notification_template_icon_bg=0x7f020057;
     }
     public static final class id {
+        public static final int ListRekap=0x7f0c00ad;
         public static final int action0=0x7f0c00d9;
         public static final int action_bar=0x7f0c005e;
         public static final int action_bar_activity_content=0x7f0c0000;
@@ -2714,7 +2715,6 @@ containing a value of this type.
         public static final int never=0x7f0c0039;
         public static final int nineLayout=0x7f0c007f;
         public static final int ninthLayout=0x7f0c009f;
-        public static final int no_medrek=0x7f0c00ad;
         public static final int none=0x7f0c0010;
         public static final int normal=0x7f0c000c;
         public static final int obat=0x7f0c0090;

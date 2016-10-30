@@ -637,6 +637,7 @@ int drawable design_ic_visibility 0x7f020054
 int drawable design_snackbar_background 0x7f020055
 int drawable navigation_empty_icon 0x7f020056
 int drawable notification_template_icon_bg 0x7f020057
+int id ListRekap 0x7f0c00ad
 int id action0 0x7f0c00d9
 int id action_bar 0x7f0c005e
 int id action_bar_activity_content 0x7f0c0000
@@ -763,7 +764,6 @@ int id navigation_header_container 0x7f0c00d3
 int id never 0x7f0c0039
 int id nineLayout 0x7f0c007f
 int id ninthLayout 0x7f0c009f
-int id no_medrek 0x7f0c00ad
 int id none 0x7f0c0010
 int id normal 0x7f0c000c
 int id obat 0x7f0c0090

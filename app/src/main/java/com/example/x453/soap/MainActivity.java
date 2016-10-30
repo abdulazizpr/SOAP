@@ -1,16 +1,21 @@
 package com.example.x453.soap;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.x453.soap.DB.conf.DBRekapMedis;
 
 import java.util.ArrayList;
 
@@ -19,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
     //menggunakan arrayList untuk menyimpan
     //data yang akan ditampilkan
     private ArrayList<String> items = new ArrayList<>();
+    static final int ACT2_REQUEST = 99;  // request code
 
     //penghubung antara data dengan listview
     ArrayAdapter adapter;
+    int yesOrNo;
 
 
     @Override
@@ -31,31 +38,44 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        //inisiasi is
+        DBRekapMedis db = new DBRekapMedis(getApplicationContext());
+        db.open();
+        items = db.getAllRekap();
 
-        //inisiasi isi
-        items.add("satu");
-        items.add("dua");
-        items.add("tiga");
-        items.add("empat");
-        items.add("lima");
         final ListView listAngka = (ListView) findViewById(R.id.listAngka);
 
-
-       /*buat adapter
-       3 parameter:
-          - context:
-          - layout listview: disini kita menggunakan yg sudah ada (nantinya bisa custom)
-          - datanya: items
-       */
         adapter = new ArrayAdapter (this, android.R.layout.simple_expandable_list_item_1, items);
+
+        listAngka.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
+
+                final AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this);
+                b.setIcon(android.R.drawable.ic_dialog_alert);
+                b.setMessage("Are you sure?");
+                b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        yesOrNo = 1;
+                    }
+                });
+                b.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        yesOrNo = 0;
+                    }
+                });
+
+                b.show();
+
+                if (yesOrNo == 1) {
+                    String selectedItem = items.get(pos);
+                    items.remove(selectedItem);
+                    adapter.notifyDataSetChanged();
+                }
+
+                return true;
+            }
+        });
 
         //set adapter ke listview
         listAngka.setAdapter(adapter);
@@ -85,6 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void klikButton(View v){
         Intent intent1 = new Intent(this,Main2Activity.class);
-        startActivity(intent1);
+        startActivityForResult(intent1,ACT2_REQUEST);
     }
 }

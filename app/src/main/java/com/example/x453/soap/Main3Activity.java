@@ -7,6 +7,9 @@ import android.view.View;
 
 public class Main3Activity extends AppCompatActivity {
 
+    public final static String EXTRA_NOREK = "com.example.abdulazizpriatna.app1.NAMA";
+    static final int ACT2_REQUEST = 99;  // request code
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

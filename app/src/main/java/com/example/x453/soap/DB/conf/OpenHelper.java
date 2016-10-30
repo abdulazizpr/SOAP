@@ -1,4 +1,4 @@
-package com.example.x453.soap.DB;
+package com.example.x453.soap.DB.conf;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +15,7 @@ public class OpenHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "dbSOAP.db";
 
     public static final String TABLE_REKAP_MEDIS = "CREATE TABLE REKAP_MEDIS (" +
-                                                        "NO_REKAP INTEGER PRIMARY KEY," +
+                                                        "NO_REKAP TEXT PRIMARY KEY," +
                                                         "TGL_MASUK DATE," +
                                                         "JAM_MASUK TEXT," +
                                                         "TGL_PENGKAJIAN DATE," +
@@ -23,7 +23,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                         "TEMPAT_PENGKAJIAN TEXT)";
 
     public static final String TABLE_IDENTITAS_PASIEN = "CREATE TABLE IDENTITAS_PASIEN (" +
-                                                            "NO INTEGER PRIMARY KEY AUTO_INCREMENT," +
+                                                            "NO INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                             "NAMA TEXT," +
                                                             "UMUR INTEGER," +
                                                             "SUKU TEXT," +
@@ -38,7 +38,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                             "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_ANAMNESA = "CREATE TABLE ANAMNESA("+
-                                                    "NO INTEGER PRIMARY KEY AUTO_INCREMENT," +
+                                                    "NO INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     "KELUHAN TEXT," +
                                                     "HPHT DATE," +
                                                     "LAMA_MENSTRUASI INTEGER," +
@@ -60,7 +60,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                     "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_PEMERIKSAAN_FISIK = "CREATE TABLE PEMERIKSAAN_FISIK(" +
-                                                                "NO INTEGER PRIMARY KEY AUTO_INCREMENT," +
+                                                                "NO INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                                 "BB_SEBELUM_HAMIL INTEGER," +
                                                                 "BB_SEKARANG INTEGER," +
                                                                 "TINGGI_BADAN INTEGER," +
@@ -77,14 +77,14 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                                 "EXTREMITAS_ATAS TEXT," +
                                                                 "EXTREMITAS_BAWAH TEXT," +
                                                                 "GENITALIA_LUAR TEXT," +
-                                                                "PEMERIKSAAN_DALAM TEXT" +
+                                                                "PEMERIKSAAN_DALAM TEXT," +
                                                                 "NO_REKAP INTEGER,"+
                                                                 "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_CATATAN = "CREATE TABLE CATATAN(" +
-                                                    "ID INTEGER PRIMARY KEY AUTO INCREMENT," +
+                                                    "ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     "CONTENT_CATATAN TEXT," +
-                                                    "JENIS_CATATAN TEXT" +
+                                                    "JENIS_CATATAN TEXT," +
                                                     "NO_REKAP INTEGER,"+
                                                     "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
@@ -100,6 +100,7 @@ public class OpenHelper extends SQLiteOpenHelper {
         db.execSQL(TABLE_IDENTITAS_PASIEN); //tabel identitas pasien
         db.execSQL(TABLE_ANAMNESA);         //tabel anamnesa
         db.execSQL(TABLE_PEMERIKSAAN_FISIK);//tabel pemeriksaan fisik
+        db.execSQL(TABLE_CATATAN);//tabel pemeriksaan fisik
 
     }
 
@@ -107,7 +108,11 @@ public class OpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //jika app diupgrade (diinstall yang baru) maka database akan dicreate ulang (data hilang)
         //jika tidak tidak ingin hilang, bisa diproses disini
-        db.execSQL("DROP TABLE IF EXITS MAHASISWA");
+        db.execSQL("DROP TABLE IF EXITS REKAP_MEDIS");
+        db.execSQL("DROP TABLE IF EXITS IDENTITAS_PASIEN");
+        db.execSQL("DROP TABLE IF EXITS ANAMNESA");
+        db.execSQL("DROP TABLE IF EXITS PEMERIKSAAN_FISIK");
+        db.execSQL("DROP TABLE IF EXITS CATATAN");
 
     }
 
