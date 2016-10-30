@@ -89,10 +89,10 @@ public class OpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //create database
-        db.execSQL(TABLE_REKAP_MEDIS);
-        db.execSQL(TABLE_IDENTITAS_PASIEN);
-        db.execSQL(TABLE_ANAMNESA);
-        db.execSQL(TABLE_PEMERIKSAAN_FISIK);
+        db.execSQL(TABLE_REKAP_MEDIS);      //tabel rekap medis
+        db.execSQL(TABLE_IDENTITAS_PASIEN); //tabel identitas pasien
+        db.execSQL(TABLE_ANAMNESA);         //tabel anamnesa
+        db.execSQL(TABLE_PEMERIKSAAN_FISIK);//tabel pemeriksaan fisik
 
     }
 
