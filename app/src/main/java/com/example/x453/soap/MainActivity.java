@@ -1,5 +1,6 @@
 package com.example.x453.soap;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.x453.soap.DB.conf.DBRekapMedis;
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     //data yang akan ditampilkan
     private ArrayList<String> items = new ArrayList<>();
     static final int ACT2_REQUEST = 99;  // request code
+    private String selectedItem;                // Stores the selected list item
+    private final Context context = this;        // This context
 
     //penghubung antara data dengan listview
     ArrayAdapter adapter;
@@ -49,30 +53,40 @@ public class MainActivity extends AppCompatActivity {
 
         listAngka.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
-            public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long rowid) {
 
-                final AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this);
-                b.setIcon(android.R.drawable.ic_dialog_alert);
-                b.setMessage("Are you sure?");
-                b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        yesOrNo = 1;
+                // Store selected item in global variable
+                selectedItem = parent.getItemAtPosition(position).toString();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("Apakah anda yakin ingin menghapus " + selectedItem + "?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        adapter.remove(selectedItem);
+                        adapter.notifyDataSetChanged();
+
+                        Toast.makeText(
+                                getApplicationContext(),
+                                selectedItem + " has been removed.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
-                b.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        yesOrNo = 0;
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
                     }
                 });
 
-                b.show();
+                // Create and show the dialog
+                builder.show();
 
-                if (yesOrNo == 1) {
-                    String selectedItem = items.get(pos);
-                    items.remove(selectedItem);
-                    adapter.notifyDataSetChanged();
-                }
-
+                // Signal OK to avoid further processing of the long click
                 return true;
             }
         });
