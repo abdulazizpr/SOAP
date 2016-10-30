@@ -100,4 +100,9 @@ public class DBRekapMedis {
 
         return rkp;
     }
+
+    public void delete(String id){
+        db.delete("REKAP_MEDIS", "NO_REKAP='"+id+"'", null);
+    }
+
 }
