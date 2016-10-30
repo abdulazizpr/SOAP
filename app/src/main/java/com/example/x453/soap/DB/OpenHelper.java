@@ -59,7 +59,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                     "NO_REKAP INTEGER,"+
                                                     "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
-    public  static  final String TABLE_PEMERIKSAAN_FISIK = "CREATE TABLE PEMERIKSAAN_FISIK(" +
+    public static final String TABLE_PEMERIKSAAN_FISIK = "CREATE TABLE PEMERIKSAAN_FISIK(" +
                                                                 "NO INTEGER PRIMARY KEY AUTO_INCREMENT," +
                                                                 "BB_SEBELUM_HAMIL INTEGER," +
                                                                 "BB_SEKARANG INTEGER," +
@@ -80,6 +80,13 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                                 "PEMERIKSAAN_DALAM TEXT" +
                                                                 "NO_REKAP INTEGER,"+
                                                                 "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
+
+    public static final String TABLE_CATATAN = "CREATE TABLE CATATAN(" +
+                                                    "ID INTEGER PRIMARY KEY AUTO INCREMENT," +
+                                                    "CONTENT_CATATAN TEXT," +
+                                                    "JENIS_CATATAN TEXT" +
+                                                    "NO_REKAP INTEGER,"+
+                                                    "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
 
     public OpenHelper(Context context) {
