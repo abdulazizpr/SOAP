@@ -1,0 +1,7 @@
+#Sun Oct 30 01:48:24 ICT 2016
+base.0=F\:\\Kuliah\\Semester 7\\Mobile Programming\\SOAP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a0bf5c265260472d2b4f7b07196ae521f6b73343
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=F\:\\Kuliah\\Semester 7\\Mobile Programming\\SOAP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_29caf9d935f77ba7feb157552801b389fd94d039\\classes.dex
+base.1=F\:\\Kuliah\\Semester 7\\Mobile Programming\\SOAP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_29caf9d935f77ba7feb157552801b389fd94d039
+file.0=F\:\\Kuliah\\Semester 7\\Mobile Programming\\SOAP\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a0bf5c265260472d2b4f7b07196ae521f6b73343\\classes.dex
