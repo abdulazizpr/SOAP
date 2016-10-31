@@ -5,33 +5,53 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="162441914352366"
+    timestamp="171174025109345"
     token="6234585129146864034"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1258" />
+        duration="1616" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1131" />
+        duration="83" />
     <task
         name="verifier"
-        duration="312" />
+        duration="4" />
 
     <artifact
-        location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="162441914352366"
+        timestamp="168999781936545"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="170343163073103"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="171174025109345"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

@@ -73,7 +73,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                                 "WAJAH TEXT," +
                                                                 "MAMMA TEXT," +
                                                                 "ABODEMEN_INSPEKSI TEXT," +
-                                                                "ABODEMEN PALPASI TEXT," +
+                                                                "ABODEMEN_PALPASI TEXT," +
                                                                 "EXTREMITAS_ATAS TEXT," +
                                                                 "EXTREMITAS_BAWAH TEXT," +
                                                                 "GENITALIA_LUAR TEXT," +

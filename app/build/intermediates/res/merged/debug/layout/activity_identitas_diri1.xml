@@ -263,7 +263,7 @@
                     android:background="@color/editTextBack"
                     android:hint="Pekerjaan"
                     android:imeOptions="actionNext"
-                    android:inputType="text|number"
+                    android:inputType="text"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/blackColor" />
@@ -298,7 +298,7 @@
                     android:background="@color/editTextBack"
                     android:hint="Alamat"
                     android:imeOptions="actionNext"
-                    android:inputType="text|number"
+                    android:inputType="text"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/blackColor" />
@@ -333,7 +333,7 @@
                     android:background="@color/editTextBack"
                     android:hint="Status Pernikahan"
                     android:imeOptions="actionNext"
-                    android:inputType="text|number"
+                    android:inputType="text"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/blackColor" />

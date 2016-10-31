@@ -26,15 +26,28 @@ public class Main3Activity extends AppCompatActivity {
 
         if(intent2.getStringExtra(MainActivity.EXTRA_NOREK) != null){
             norek =  intent2.getStringExtra(MainActivity.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Selected: " + norek, Toast.LENGTH_LONG).show();
         }else if(intent2.getStringExtra(Main2Activity.EXTRA_NOREK) != null){
             norek =  intent2.getStringExtra(Main2Activity.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Nomor Rekap : " + norek +" berhasil ditambahkan", Toast.LENGTH_LONG).show();
         }else if(intent2.getStringExtra(Anamnesa.EXTRA_NOREK) != null){
             norek =  intent2.getStringExtra(Anamnesa.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Data Anamnesa berhasil ditambahkan", Toast.LENGTH_LONG).show();
+        }else if(intent2.getStringExtra(DataPenunjang.EXTRA_NOREK) != null){
+            norek =  intent2.getStringExtra(DataPenunjang.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Data Penunjang berhasil disimpan", Toast.LENGTH_LONG).show();
+        }else if(intent2.getStringExtra(Assesment.EXTRA_NOREK) != null){
+            norek =  intent2.getStringExtra(Assesment.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Data assesment berhasil disimpan", Toast.LENGTH_LONG).show();
+        }else if(intent2.getStringExtra(Planning.EXTRA_NOREK) != null){
+            norek =  intent2.getStringExtra(Planning.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Data planning berhasil disimpan", Toast.LENGTH_LONG).show();
         }else{
             norek =  intent2.getStringExtra(Identitas_diri2.EXTRA_NOREK);
+            Toast.makeText(getApplicationContext(), "Data identitas berhasil disimpan", Toast.LENGTH_LONG).show();
         }
 
-        Toast.makeText(getApplicationContext(), "Selected: " + norek, Toast.LENGTH_LONG).show();
+
     }
 
     //untuk pemeriksaan fisik

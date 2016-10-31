@@ -209,7 +209,7 @@
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/blackColor"
-                    android:inputType="number" />
+                    android:inputType="text" />
             </LinearLayout>
             <!-- create a Linear Layout with horizontal orientation and weightSum property -->
 
@@ -277,7 +277,7 @@
                     android:layout_weight="1.4"
                     android:background="@color/editTextBack"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/blackColor" />
@@ -557,10 +557,10 @@
                     android:layout_weight="1.4"
                     android:background="@color/editTextBack"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/blackColor" />
+                    android:textColor="@color/blackColor"
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout

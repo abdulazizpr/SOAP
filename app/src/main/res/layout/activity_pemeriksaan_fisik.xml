@@ -328,7 +328,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/firstName"
+                    android:id="@+id/mata"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -366,7 +366,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/lastName"
+                    android:id="@+id/wajah"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -403,7 +403,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/address"
+                    android:id="@+id/mamma"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -440,7 +440,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/city"
+                    android:id="@+id/abodemen_i"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -476,7 +476,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/state"
+                    android:id="@+id/abodemen_p"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -513,7 +513,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/country"
+                    android:id="@+id/extrem_a"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -548,7 +548,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/pinCode"
+                    android:id="@+id/extrem_b"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -583,7 +583,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/mobileNumber"
+                    android:id="@+id/gen_luar"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -618,7 +618,7 @@
                     android:textColor="@color/blackColor" />
 
                 <EditText
-                    android:id="@+id/mobileNumber"
+                    android:id="@+id/pem_dalam"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
