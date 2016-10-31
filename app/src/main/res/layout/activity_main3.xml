@@ -80,6 +80,7 @@
         android:id="@+id/button8"
         android:background="@android:drawable/ic_menu_save"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="klikSave" />
 
 </RelativeLayout>

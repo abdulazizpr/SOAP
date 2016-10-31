@@ -20,7 +20,12 @@ import com.example.x453.soap.DB.conf.DBIdentitasDiri;
 
 public class Identitas_diri2 extends AppCompatActivity implements OnItemSelectedListener {
 
+    public final static String EXTRA_NOREK = "com.example.x453.soap.NOREK3";
+    public static final int ACT_REQUEST = 22;  // request code
+    public static final int ACT2_REQUEST = 25;  // request code
     DBIdentitasDiri.IdentitasDiri I;
+    DBIdentitasDiri db;
+    String norek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,10 +87,12 @@ public class Identitas_diri2 extends AppCompatActivity implements OnItemSelected
         // attaching data adapter to spinner
         spinner4.setAdapter(dataAdapter4);
 
-        DBIdentitasDiri db = new DBIdentitasDiri(getApplicationContext());
+        db = new DBIdentitasDiri(getApplicationContext());
         db.open();
 
-        I = db.getIdentitas(Identitas_diri1.EXTRA_NOREK,"Suami");
+        Intent intent2 = getIntent();
+        norek = intent2.getStringExtra(Identitas_diri1.EXTRA_NOREK);
+        I = db.getIdentitas(norek,"Suami");
 
         EditText nama = (EditText) findViewById(R.id.tfNamaSuami);
         EditText umur = (EditText) findViewById(R.id.tfUmurSuami);
@@ -120,6 +127,44 @@ public class Identitas_diri2 extends AppCompatActivity implements OnItemSelected
 
     public void save_id(View v){
         Intent intent3 = new Intent(this,Main3Activity.class);
+
+        EditText nama = (EditText) findViewById(R.id.tfNamaSuami);
+        EditText umur = (EditText) findViewById(R.id.tfUmurSuami);
+        EditText suku = (EditText) findViewById(R.id.tfSukuSuami);
+        EditText agama = (EditText) findViewById(R.id.tfAgamaSuami);
+        Spinner pend_terakhir = (Spinner)findViewById(R.id.spinner4);
+        Spinner gol_darah = (Spinner)findViewById(R.id.spinner3);
+        EditText pekerjaan = (EditText) findViewById(R.id.tfPekerjaanSuami);
+        EditText alamat = (EditText) findViewById(R.id.tfAlamatSuami);
+        EditText status_pernikahan = (EditText) findViewById(R.id.tfSPSuami);
+
+        db.open();
+        if(I.NOREK == null){
+            db.insertIdentitas(
+                    nama.getText().toString(),
+                    Integer.parseInt(umur.getText().toString()),
+                    suku.getText().toString(),
+                    agama.getText().toString(),
+                    pend_terakhir.getSelectedItem().toString(),
+                    gol_darah.getSelectedItem().toString(),
+                    pekerjaan.getText().toString(),
+                    alamat.getText().toString(),status_pernikahan.getText().toString(),
+                    "Suami",norek);
+        }else{
+            db.updateIdentitas(
+                    nama.getText().toString(),
+                    Integer.parseInt(umur.getText().toString()),
+                    suku.getText().toString(),
+                    agama.getText().toString(),
+                    pend_terakhir.getSelectedItem().toString(),
+                    gol_darah.getSelectedItem().toString(),
+                    pekerjaan.getText().toString(),
+                    alamat.getText().toString(),status_pernikahan.getText().toString(),
+                    "Suami",norek);
+        }
+
+        db.close();
+        intent3.putExtra(EXTRA_NOREK,norek);
         startActivity(intent3);
 
     }

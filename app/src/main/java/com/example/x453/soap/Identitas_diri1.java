@@ -168,7 +168,7 @@ public class Identitas_diri1 extends AppCompatActivity implements OnItemSelected
         }
 
         db.close();
-        intent2.putExtra(EXTRA_NOREK,Main3Activity.EXTRA_NOREK);
+        intent2.putExtra(EXTRA_NOREK,norek);
         startActivity(intent2);
     }
 }

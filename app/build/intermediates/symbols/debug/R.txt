@@ -686,7 +686,6 @@ int id button6 0x7f0c00b9
 int id button7 0x7f0c00b6
 int id button8 0x7f0c00ba
 int id buttonPanel 0x7f0c0047
-int id calendarView 0x7f0c0072
 int id cancel_action 0x7f0c00da
 int id center 0x7f0c0023
 int id center_horizontal 0x7f0c0024
@@ -710,7 +709,7 @@ int id design_menu_item_action_area_stub 0x7f0c00d6
 int id design_menu_item_text 0x7f0c00d5
 int id design_navigation_view 0x7f0c00d4
 int id disableHome 0x7f0c000e
-int id editText 0x7f0c006f
+int id eTKeluhan 0x7f0c006f
 int id edit_query 0x7f0c0060
 int id eightLayout 0x7f0c007d
 int id elevenLayout 0x7f0c0083
@@ -718,6 +717,7 @@ int id end 0x7f0c0026
 int id end_padder 0x7f0c00e5
 int id enterAlways 0x7f0c0015
 int id enterAlwaysCollapsed 0x7f0c0016
+int id etHPHT 0x7f0c0072
 int id exitUntilCollapsed 0x7f0c0017
 int id expand_activities_button 0x7f0c0041
 int id expanded_menu 0x7f0c0054
@@ -976,10 +976,11 @@ int string appbar_scrolling_view_behavior 0x7f060023
 int string bottom_sheet_behavior 0x7f060024
 int string character_counter_pattern 0x7f060025
 int string date_button_set 0x7f060026
-int string date_label_set 0x7f060027
-int string date_selected 0x7f060028
-int string date_view_set 0x7f060029
-int string hello_world 0x7f06002a
+int string date_hpht 0x7f060027
+int string date_label_set 0x7f060028
+int string date_selected 0x7f060029
+int string date_view_set 0x7f06002a
+int string hello_world 0x7f06002b
 int string search_menu_title 0x7f060013
 int string status_bar_notification_info_overflow 0x7f060014
 int style AlertDialog_AppCompat 0x7f08008d

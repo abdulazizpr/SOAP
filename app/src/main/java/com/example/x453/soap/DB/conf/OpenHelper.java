@@ -34,7 +34,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                             "ALAMAT TEXT," +
                                                             "STATUS_PERNIKAHAN TEXT," +
                                                             "JENIS_IDENTITAS TEXT," +
-                                                            "NO_REKAP INTEGER,"+
+                                                            "NO_REKAP TEXT,"+
                                                             "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_ANAMNESA = "CREATE TABLE ANAMNESA("+
@@ -55,8 +55,8 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                     "PERGERAKAN_JANIN TEXT," +
                                                     "ANC INTEGER," +
                                                     "DIPERIKSA_KE TEXT," +
-                                                    "OBAT_YG_DIKONSUMSI TEXT," +
-                                                    "NO_REKAP INTEGER,"+
+                                                    "OBAT TEXT," +
+                                                    "NO_REKAP TEXT,"+
                                                     "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_PEMERIKSAAN_FISIK = "CREATE TABLE PEMERIKSAAN_FISIK(" +
@@ -78,14 +78,14 @@ public class OpenHelper extends SQLiteOpenHelper {
                                                                 "EXTREMITAS_BAWAH TEXT," +
                                                                 "GENITALIA_LUAR TEXT," +
                                                                 "PEMERIKSAAN_DALAM TEXT," +
-                                                                "NO_REKAP INTEGER,"+
+                                                                "NO_REKAP TEXT,"+
                                                                 "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
     public static final String TABLE_CATATAN = "CREATE TABLE CATATAN(" +
                                                     "ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                     "CONTENT_CATATAN TEXT," +
                                                     "JENIS_CATATAN TEXT," +
-                                                    "NO_REKAP INTEGER,"+
+                                                    "NO_REKAP TEXT,"+
                                                     "FOREIGN KEY(NO_REKAP) REFERENCES REKAP_MEDIS(NO_REKAP))";
 
 
@@ -101,7 +101,7 @@ public class OpenHelper extends SQLiteOpenHelper {
         db.execSQL(TABLE_ANAMNESA);         //tabel anamnesa
         db.execSQL(TABLE_PEMERIKSAAN_FISIK);//tabel pemeriksaan fisik
         db.execSQL(TABLE_CATATAN);//tabel pemeriksaan fisik
-
+        db.execSQL("PRAGMA foreign_keys = ON");
     }
 
     @Override

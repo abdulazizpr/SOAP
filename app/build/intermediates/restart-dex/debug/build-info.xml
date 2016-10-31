@@ -5,39 +5,33 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="126542326900826"
+    timestamp="162441914352366"
     token="6234585129146864034"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1258" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="1131" />
     <task
         name="verifier"
-        duration="0" />
+        duration="312" />
+
+    <artifact
+        location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="125696286227733"
+        timestamp="162441914352366"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="126379631001763"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="F:\Kuliah\Semester 7\Mobile Programming\SOAP\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="126542326900826"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

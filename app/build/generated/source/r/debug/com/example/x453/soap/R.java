@@ -2637,7 +2637,6 @@ containing a value of this type.
         public static final int button7=0x7f0c00b6;
         public static final int button8=0x7f0c00ba;
         public static final int buttonPanel=0x7f0c0047;
-        public static final int calendarView=0x7f0c0072;
         public static final int cancel_action=0x7f0c00da;
         public static final int center=0x7f0c0023;
         public static final int center_horizontal=0x7f0c0024;
@@ -2661,7 +2660,7 @@ containing a value of this type.
         public static final int design_menu_item_text=0x7f0c00d5;
         public static final int design_navigation_view=0x7f0c00d4;
         public static final int disableHome=0x7f0c000e;
-        public static final int editText=0x7f0c006f;
+        public static final int eTKeluhan=0x7f0c006f;
         public static final int edit_query=0x7f0c0060;
         public static final int eightLayout=0x7f0c007d;
         public static final int elevenLayout=0x7f0c0083;
@@ -2669,6 +2668,7 @@ containing a value of this type.
         public static final int end_padder=0x7f0c00e5;
         public static final int enterAlways=0x7f0c0015;
         public static final int enterAlwaysCollapsed=0x7f0c0016;
+        public static final int etHPHT=0x7f0c0072;
         public static final int exitUntilCollapsed=0x7f0c0017;
         public static final int expand_activities_button=0x7f0c0041;
         public static final int expanded_menu=0x7f0c0054;
@@ -2937,10 +2937,11 @@ containing a value of this type.
         public static final int bottom_sheet_behavior=0x7f060024;
         public static final int character_counter_pattern=0x7f060025;
         public static final int date_button_set=0x7f060026;
-        public static final int date_label_set=0x7f060027;
-        public static final int date_selected=0x7f060028;
-        public static final int date_view_set=0x7f060029;
-        public static final int hello_world=0x7f06002a;
+        public static final int date_hpht=0x7f060027;
+        public static final int date_label_set=0x7f060028;
+        public static final int date_selected=0x7f060029;
+        public static final int date_view_set=0x7f06002a;
+        public static final int hello_world=0x7f06002b;
         public static final int search_menu_title=0x7f060013;
         public static final int status_bar_notification_info_overflow=0x7f060014;
     }

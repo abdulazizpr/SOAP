@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText"
+                    android:id="@+id/eTKeluhan"
                     android:layout_weight="1.39" />
 
             </LinearLayout>
@@ -88,19 +88,23 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1.94"
+                    android:layout_weight="0.62"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:text="HPHT"
                     android:textColor="@color/blackColor" />
 
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/etHPHT"
+                    android:hint="DD/MM/YY"
+                    android:layout_weight="1.33" />
+
             </LinearLayout>
             <!-- create a Linear Layout with horizontal orientation and weightSum property -->
-
-            <CalendarView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/calendarView" />
 
             <LinearLayout
                 android:id="@+id/thirdLayout"
@@ -168,7 +172,8 @@
                     android:imeOptions="actionNext"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/blackColor" />
+                    android:textColor="@color/blackColor"
+                    android:inputType="number" />
             </LinearLayout>
             <!-- create a Linear Layout with horizontal orientation and weightSum property -->
 
@@ -203,7 +208,8 @@
                     android:imeOptions="actionNext"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/blackColor" />
+                    android:textColor="@color/blackColor"
+                    android:inputType="number" />
             </LinearLayout>
             <!-- create a Linear Layout with horizontal orientation and weightSum property -->
 
@@ -238,7 +244,8 @@
                     android:imeOptions="actionNext"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/blackColor" />
+                    android:textColor="@color/blackColor"
+                    android:inputType="number" />
             </LinearLayout>
             <!-- create a Linear Layout with horizontal orientation and weightSum property -->
 

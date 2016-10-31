@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.x453.soap.DB.conf.DBAnamnesa;
+
 public class Main3Activity extends AppCompatActivity {
 
     public final static String EXTRA_NOREK = "com.example.x453.soap.NOREK2";
@@ -24,11 +26,15 @@ public class Main3Activity extends AppCompatActivity {
 
         if(intent2.getStringExtra(MainActivity.EXTRA_NOREK) != null){
             norek =  intent2.getStringExtra(MainActivity.EXTRA_NOREK);
-        }else{
+        }else if(intent2.getStringExtra(Main2Activity.EXTRA_NOREK) != null){
             norek =  intent2.getStringExtra(Main2Activity.EXTRA_NOREK);
+        }else if(intent2.getStringExtra(Anamnesa.EXTRA_NOREK) != null){
+            norek =  intent2.getStringExtra(Anamnesa.EXTRA_NOREK);
+        }else{
+            norek =  intent2.getStringExtra(Identitas_diri2.EXTRA_NOREK);
         }
-        Toast toast = Toast.makeText(getApplicationContext(), norek , Toast.LENGTH_SHORT);
-        toast.show();
+
+        Toast.makeText(getApplicationContext(), "Selected: " + norek, Toast.LENGTH_LONG).show();
     }
 
     //untuk pemeriksaan fisik
@@ -36,7 +42,7 @@ public class Main3Activity extends AppCompatActivity {
         Intent intent3 = new Intent(this,PemeriksaanFisik.class);
 
         intent3.putExtra(EXTRA_NOREK, norek);
-        startActivityForResult(intent3,ACT2_REQUEST);
+        startActivity(intent3);
     }
 
     //untuk identitas dir
@@ -80,6 +86,11 @@ public class Main3Activity extends AppCompatActivity {
 
         intent.putExtra(EXTRA_NOREK, norek);
         startActivityForResult(intent,ACT2_REQUEST);
+    }
+
+    public  void klikSave(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
