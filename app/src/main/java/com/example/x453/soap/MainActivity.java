@@ -26,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
     //menggunakan arrayList untuk menyimpan
     //data yang akan ditampilkan
     private ArrayList<String> items = new ArrayList<>();
-    static final int ACT2_REQUEST = 99;  // request code
+    public final static String EXTRA_NOREK = "com.example.x453.soap.NOREK";
+    static final int ACT_REQUEST = 22;  // request code
+    static final int ACT2_REQUEST = 25;  // request code
     private String selectedItem;                // Stores the selected list item
     private final Context context = this;        // This context
+    public DBRekapMedis db;
 
     //penghubung antara data dengan listview
     ArrayAdapter adapter;
@@ -43,13 +46,29 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //inisiasi is
-        DBRekapMedis db = new DBRekapMedis(getApplicationContext());
+        db = new DBRekapMedis(getApplicationContext());
         db.open();
         items = db.getAllRekap();
+        db.close();
 
         final ListView listAngka = (ListView) findViewById(R.id.listAngka);
+        listAngka.invalidateViews();
 
         adapter = new ArrayAdapter (this, android.R.layout.simple_expandable_list_item_1, items);
+
+        listAngka.setClickable(true);
+        listAngka.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                String isiBaris = (String) listAngka.getItemAtPosition(position);
+                Intent intent2 = new Intent(getApplicationContext(),Main3Activity.class);
+                intent2.putExtra(EXTRA_NOREK,isiBaris);
+                startActivityForResult(intent2,ACT_REQUEST);
+                //String pesan = "Posisi:"+position +"->"+ isiBaris;
+                //Toast toast = Toast.makeText(getApplicationContext(), pesan, Toast.LENGTH_SHORT);
+                //toast.show();
+            }
+        });
 
         listAngka.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
@@ -68,11 +87,14 @@ public class MainActivity extends AppCompatActivity {
 
                         adapter.remove(selectedItem);
                         adapter.notifyDataSetChanged();
-
+                        db = new DBRekapMedis(getApplicationContext());
+                        db.open();
+                        db.delete(selectedItem);
                         Toast.makeText(
                                 getApplicationContext(),
                                 selectedItem + " has been removed.",
                                 Toast.LENGTH_SHORT).show();
+                        db.close();
                     }
                 });
                 builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -93,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set adapter ke listview
         listAngka.setAdapter(adapter);
+
     }
 
     @Override
@@ -115,6 +138,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.notifyDataSetChanged();
     }
 
     public void klikButton(View v){
