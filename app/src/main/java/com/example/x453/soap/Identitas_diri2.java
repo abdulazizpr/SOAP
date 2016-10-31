@@ -11,11 +11,16 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.example.x453.soap.DB.conf.DBIdentitasDiri;
+
 public class Identitas_diri2 extends AppCompatActivity implements OnItemSelectedListener {
+
+    DBIdentitasDiri.IdentitasDiri I;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,29 @@ public class Identitas_diri2 extends AppCompatActivity implements OnItemSelected
 
         // attaching data adapter to spinner
         spinner4.setAdapter(dataAdapter4);
+
+        DBIdentitasDiri db = new DBIdentitasDiri(getApplicationContext());
+        db.open();
+
+        I = db.getIdentitas(Identitas_diri1.EXTRA_NOREK,"Suami");
+
+        EditText nama = (EditText) findViewById(R.id.tfNamaSuami);
+        EditText umur = (EditText) findViewById(R.id.tfUmurSuami);
+        EditText suku = (EditText) findViewById(R.id.tfSukuSuami);
+        EditText agama = (EditText) findViewById(R.id.tfAgamaSuami);
+        spinner4.setSelection(dataAdapter4.getPosition(I.PEND_TERAKHIR));
+        spinner3.setSelection(dataAdapter3.getPosition(I.GOL_DARAH));
+        EditText pekerjaan = (EditText) findViewById(R.id.tfPekerjaanSuami);
+        EditText alamat = (EditText) findViewById(R.id.tfAlamatSuami);
+        EditText status_pernikahan = (EditText) findViewById(R.id.tfSPSuami);
+
+        nama.setText(I.NAMA);
+        umur.setText(I.UMUR);
+        suku.setText(I.SUKU);
+        agama.setText(I.AGAMA);
+        pekerjaan.setText(I.PEKERJAAN);
+        alamat.setText(I.ALAMAT);
+        status_pernikahan.setText(I.STATUS_PERNIKAHAN);
     }
 
     @Override

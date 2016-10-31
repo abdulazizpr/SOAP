@@ -1,5 +1,6 @@
 package com.example.x453.soap;
 
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,11 +13,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.example.x453.soap.DB.conf.DBIdentitasDiri;
+
 public class Identitas_diri1 extends AppCompatActivity implements OnItemSelectedListener{
+
+
+    public final static String EXTRA_NOREK = "com.example.x453.soap.NOREK3";
+    DBIdentitasDiri.IdentitasDiri I;
+    DBIdentitasDiri db;
+    String norek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +87,34 @@ public class Identitas_diri1 extends AppCompatActivity implements OnItemSelected
 
         // attaching data adapter to spinner
         spinner2.setAdapter(dataAdapter2);
+
+
+        db = new DBIdentitasDiri(getApplicationContext());
+        db.open();
+
+        Intent intent2 = getIntent();
+        norek = intent2.getStringExtra(Main3Activity.EXTRA_NOREK);
+        I = db.getIdentitas(norek,"Istri");
+
+        EditText nama = (EditText) findViewById(R.id.tfNamaIstri);
+        EditText umur = (EditText) findViewById(R.id.tfUmurIstri);
+        EditText suku = (EditText) findViewById(R.id.tfSukuIstri);
+        EditText agama = (EditText) findViewById(R.id.tfAgamaIstri);
+        spinner2.setSelection(dataAdapter2.getPosition(I.PEND_TERAKHIR));
+        spinner.setSelection(dataAdapter.getPosition(I.GOL_DARAH));
+        EditText pekerjaan = (EditText) findViewById(R.id.tfPekerjaan);
+        EditText alamat = (EditText) findViewById(R.id.tfAlamat);
+        EditText status_pernikahan = (EditText) findViewById(R.id.tfStatusPernikahan);
+
+        nama.setText(I.NAMA);
+        umur.setText(I.UMUR);
+        suku.setText(I.SUKU);
+        agama.setText(I.AGAMA);
+        pekerjaan.setText(I.PEKERJAAN);
+        alamat.setText(I.ALAMAT);
+        status_pernikahan.setText(I.STATUS_PERNIKAHAN);
+
+        db.close();
     }
 
     @Override
@@ -93,6 +131,44 @@ public class Identitas_diri1 extends AppCompatActivity implements OnItemSelected
 
     public void klikButton(View v) {
         Intent intent2 = new Intent(this, Identitas_diri2.class);
+
+        EditText nama = (EditText) findViewById(R.id.tfNamaIstri);
+        EditText umur = (EditText) findViewById(R.id.tfUmurIstri);
+        EditText suku = (EditText) findViewById(R.id.tfSukuIstri);
+        EditText agama = (EditText) findViewById(R.id.tfAgamaIstri);
+        Spinner pend_terakhir = (Spinner)findViewById(R.id.spinner2);
+        Spinner gol_darah = (Spinner)findViewById(R.id.spinner);
+        EditText pekerjaan = (EditText) findViewById(R.id.tfPekerjaan);
+        EditText alamat = (EditText) findViewById(R.id.tfAlamat);
+        EditText status_pernikahan = (EditText) findViewById(R.id.tfStatusPernikahan);
+
+        db.open();
+        if(I.NOREK == null){
+            db.insertIdentitas(
+                    nama.getText().toString(),
+                    Integer.parseInt(umur.getText().toString()),
+                    suku.getText().toString(),
+                    agama.getText().toString(),
+                    pend_terakhir.getSelectedItem().toString(),
+                    gol_darah.getSelectedItem().toString(),
+                    pekerjaan.getText().toString(),
+                    alamat.getText().toString(),status_pernikahan.getText().toString(),
+                    "Istri",norek);
+        }else{
+            db.updateIdentitas(
+                    nama.getText().toString(),
+                    Integer.parseInt(umur.getText().toString()),
+                    suku.getText().toString(),
+                    agama.getText().toString(),
+                    pend_terakhir.getSelectedItem().toString(),
+                    gol_darah.getSelectedItem().toString(),
+                    pekerjaan.getText().toString(),
+                    alamat.getText().toString(),status_pernikahan.getText().toString(),
+                    "Istri",norek);
+        }
+
+        db.close();
+        intent2.putExtra(EXTRA_NOREK,Main3Activity.EXTRA_NOREK);
         startActivity(intent2);
     }
 }

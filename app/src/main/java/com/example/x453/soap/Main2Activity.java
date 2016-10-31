@@ -10,6 +10,9 @@ import com.example.x453.soap.DB.conf.DBRekapMedis;
 
 public class Main2Activity extends AppCompatActivity {
 
+    public final static String EXTRA_NOREK = "com.example.x453.soap.NOREK1";
+    static final int ACT2_REQUEST = 99;  // request code
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +48,13 @@ public class Main2Activity extends AppCompatActivity {
             }
         }
 
+
+
         db.insertRekapMedis(lastNorek,tgl_masuk.getText().toString(),jam_masuk.getText().toString(),tgl_pengkajian.getText().toString(),
                 jam_pengkajian.getText().toString(),tempat_pengkajian.getText().toString());
 
+        intent2.putExtra(EXTRA_NOREK,lastNorek);
         startActivity(intent2);
+
     }
 }
